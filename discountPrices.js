@@ -1,4 +1,5 @@
-var jumbledPrices = [];
+function findDiscounted(prices){
+  var jumbledPrices = [];
 var discountPrices = "";
 var priceObj = {};
 jumbledPrices = prices.split(" ");
@@ -17,12 +18,9 @@ jumbledPrices.forEach(function (currentPrice) {
 //if you h
 jumbledPrices.forEach(function (currentPrice) {
 	var fullPrice = currentPrice * (4 / 3);
-	console.log("Current Price: " +currentPrice + ": " + priceObj[currentPrice]);
-	console.log("Full Price: " +fullPrice + ": " + priceObj[fullPrice]);
 	//check to see if you have any of the currentPrice that you haven't already flagged as a full or discounted price
 	//and check to see if you have any at this currentPrice's corresponding full price
 	if (priceObj[currentPrice] > 0 && priceObj[fullPrice] !== null && priceObj[fullPrice] > 0) {
-		console.log('confirmed');
 		priceObj[fullPrice] -= 1;
 		priceObj[currentPrice] -= 1;
 		discountPrices += currentPrice + " ";
@@ -30,4 +28,7 @@ jumbledPrices.forEach(function (currentPrice) {
 })
 
 //Trim any whitespace
-discountPrices.trim();
+discountPrices = discountPrices.trim();
+
+return discountPrices;
+}

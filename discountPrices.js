@@ -33,7 +33,7 @@ function findDiscounted(prices) {
 			priceObj[currentPrice] -= 1;
 			discountPrices += currentPrice + " ";
 		}
-	})
+	});
 
 	//Trim any whitespace
 	discountPrices = discountPrices.trim();
